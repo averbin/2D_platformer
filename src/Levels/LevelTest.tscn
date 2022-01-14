@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Objects/Portal.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/background.png" type="Texture" id=4]
+[ext_resource path="res://src/Objects/Coin.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Levels/Level1.tscn" type="PackedScene" id=6]
+
+[node name="TestLevel" type="Node2D"]
+__meta__ = {
+"_edit_vertical_guides_": [ 2160.0, 1368.0 ]
+}
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 696, 322 )
+scale = Vector2( 0.891667, 0.9 )
+texture = ExtResource( 4 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 80, 80 )
+cell_custom_transform = Transform2D( 80, 0, 0, 80, 0, 0 )
+collision_layer = 8
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 65535, 0, 0, 0, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 131071, 0, 0, 65536, 1073741824, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 196607, 0, 0, 131072, 1073741824, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 0, 0, 262143, 0, 0, 196608, 1073741824, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 0, 0, 327679, 0, 0, 262144, 1073741824, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 0, 393215, 0, 0, 327680, 1073741824, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 327696, 0, 0, 458751, 0, 0, 393216, 1073741824, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 524287, 0, 0, 458752, 1073741824, 0, 458753, 1073741824, 0, 458754, 1073741824, 0, 458755, 1073741824, 0, 458756, 1073741824, 0, 458757, 1073741824, 0, 458758, 1073741824, 0, 458759, 1073741824, 0, 458760, 1073741824, 0, 458761, 1073741824, 0, 458762, 1073741824, 0, 458763, 1073741824, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 589823, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 112, 208 )
+speed = Vector2( 400, 500 )
+gravity = 1000.0
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_right = 1300
+
+[node name="Coin" parent="." instance=ExtResource( 5 )]
+position = Vector2( 288, 520 )
+
+[node name="Coin2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 488, 520 )
+
+[node name="Coin3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 680, 520 )
+
+[node name="Portal" parent="." instance=ExtResource( 3 )]
+position = Vector2( 966, 537 )
+next_scene = ExtResource( 6 )
+
+[editable path="Player"]
